@@ -1,0 +1,68 @@
+.container-login{
+
+    background-color: rgb(4, 173, 252);
+    height: 100vh;
+justify-content: center;
+display: flex; /* Utilise Flexbox pour le conteneur */
+
+}
+
+.logo{
+    display: block;
+    margin: 0 auto;
+    width: 220px;
+    height: 250px;
+    
+
+}
+
+.formlogin{
+
+    display: flex; /* Utilise Flexbox pour le centrage */
+    flex-direction: column; /* Organise les éléments enfants en colonne */
+    width: 40%; 
+    height: 70%;/* Largeur du formulaire */
+    border: 1px solid #ccc; /* Bordure pour le formulaire */
+    border-radius: 5px; /* Arrondir les coins */
+    background-color: white; /* Couleur de fond du formulaire */
+    margin: auto auto;
+    border-radius: 40px;
+}
+label{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 7px;
+    margin-left: 19px;
+
+}
+
+input{
+ height: 44px;
+ width: 95%;
+ margin-left: 11px;
+ margin-bottom: 12px;
+ border-radius: 6px;
+}
+
+button{
+
+    background-color: rgb(4, 4, 189);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    height: 40px;
+    width: 96%;
+    margin-left: 11px;
+    margin-top: 0px;
+    border-radius: 6px;
+}
+
+button:hover{
+    background-color: rgb(3, 75, 138);
+    font-size: 22px;
+}
+
+span{
+    margin-left: 10px;
+    margin-top: 12px;
+}

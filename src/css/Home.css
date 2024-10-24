@@ -1,0 +1,22 @@
+
+.home-container {
+    display: grid;
+    grid-template-columns: 13% 87%; /* 50% pour la gauche, 50% pour la droite */
+    height: 100vh; /* Hauteur totale de la fenêtre */
+  }
+
+  
+  
+  .left {
+    background-color: rgb(11, 180, 236);
+    padding: 20px;
+    height: 100vh; /* Hauteur totale de la fenêtre */
+  }
+  
+  .right {
+    background-color: rgb(200, 242, 245);
+    padding: 20px;
+    height: 100vh; /* Hauteur totale de la fenêtre */
+  }
+  
+  

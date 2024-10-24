@@ -1,0 +1,47 @@
+/* src/components/Navbar.css */
+.navbarr{
+  margin-top: 0%;
+  
+}
+h3{
+  color: aliceblue;
+  font-size: 30px;
+  margin-left: 17px;
+  
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne */
+  }
+  
+  a {
+    display: block; /* Permet aux liens de s'étendre sur toute la largeur */
+    color: black;
+    font-size: 20px;
+    font-weight: bold; /* Rendre le texte en gras */
+    text-decoration: none;
+    margin: 10px 0; /* Espace entre les liens */
+    padding: 10px; /* Ajoute un peu d'espace autour du texte */
+  }
+  
+  a:hover {
+    color: rgb(6, 21, 240);
+    background-color: aliceblue; /* Couleur de fond au survol */
+  }
+  .logo{
+
+    width: 130px;
+    padding-left: 20px;
+    height: 160px;
+  }
+
+  .footer{
+
+    color: white;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 17px;
+
+  }
+  
