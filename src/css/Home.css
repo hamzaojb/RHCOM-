@@ -71,3 +71,24 @@ td:hover {
 .tableau{
   margin-left: 10px;
 }
+
+
+.edit-icon{
+
+  color: rgb(64, 80, 172);
+  margin-right: 25px;
+  margin-left: 15px;
+}
+
+.edit-icon:hover{
+
+  font-size: 20px;
+}
+.delete-icon{
+
+  color: rgb(255, 7, 7);
+}
+.delete-icon:hover{
+  font-size: 20px;
+
+}

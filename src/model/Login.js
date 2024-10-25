@@ -21,12 +21,14 @@ const Login = () => {
             });
             console.log('Connexion réussie:', response.data);
             setMessage('Connexion réussie !'); // Message de succès
+
+            // Stocker le token dans le localStorage
+            localStorage.setItem('token', response.data.token);
+
+            // Redirection vers /home après un court délai
             setTimeout(() => {
-              window.location.href = '/home'; // Redirection vers /home après un court délai
-          }, 1000);
-            // Vous pouvez ici rediriger l'utilisateur vers une autre page ou stocker le token
-            // Par exemple, redirection vers un tableau de bord
-            // window.location.href = '/dashboard'; 
+                window.location.href = '/home'; 
+            }, 500);
         } catch (error) {
             console.error('Erreur lors de la connexion:', error.response ? error.response.data : error.message);
             setMessage('Erreur lors de la connexion : ' + (error.response ? error.response.data.error : error.message)); // Message d'erreur

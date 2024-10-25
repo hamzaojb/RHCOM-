@@ -98,42 +98,47 @@ app.post('/signin', async (req, res) => {
 
 
 
-////job
+////employee
 
 
 // Schéma Mongoose pour les travaux
-const workSchema = new mongoose.Schema({
-    nameentreprise: { type: String, required: true },
+const employeSchema = new mongoose.Schema({
+    nameemploye: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     datededebut: { type: Date, required: true },
-    nombredemployee: { type: Number, required: true },
-    lieu: { type: String, required: true },
+    datedefin: { type: Date, required: false },
+    departement: { type: String, required: true },
+    salaire: { type: Number, required: true },
+    contrat: { type: String, required: true },
+
 });
 
-const Work = mongoose.model('Work', workSchema);
+const Employe = mongoose.model('Employe', employeSchema);
 
 // Route pour ajouter un travail
-app.post('/work', async (req, res) => {
-    const { nameentreprise, email, datededebut, nombredemployee, lieu } = req.body;
+app.post('/Employe', async (req, res) => {
+    const { nameemploye, email, datededebut,datedefin, departement, salaire , contrat} = req.body;
 
     try {
         // Insérer le nouveau travail dans la base de données
-        const newWork = new Work({
-            nameentreprise,
+        const newEmploye = new Employe({
+            nameemploye,
             email,
             datededebut,
-            nombredemployee,
-            lieu,
+            datedefin,
+            departement,
+            salaire,
+            contrat,
         });
 
-        await newWork.save();
+        await newEmploye.save();
 
         // Créer un token JWT
-        const token = jwt.sign({ id: newWork._id, email: newWork.email }, 'your_jwt_secret', {
+        const token = jwt.sign({ id: newEmploye._id, email: newEmploye.email }, 'your_jwt_secret', {
             expiresIn: '1h',
         });
 
-        res.status(201).json({ token, work: newWork });
+        res.status(201).json({ token, Employe: newEmploye });
     } catch (err) {
         console.error(err.message);
         res.status(500).json({ error: 'Erreur serveur' });
@@ -142,10 +147,49 @@ app.post('/work', async (req, res) => {
 
 
 // Route pour obtenir tous les travaux
-app.get('/work', async (req, res) => {
+app.get('/Employe', async (req, res) => {
   try {
-      const works = await Work.find(); // Récupérer tous les travaux
+      const works = await Employe.find(); // Récupérer tous les travaux
       res.status(200).json(works); // Retourner les travaux
+  } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Route pour supprimer un employé par ID
+app.delete('/Employe/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+      const employe = await Employe.findByIdAndDelete(id);
+      if (!employe) {
+          return res.status(404).json({ error: 'Employé non trouvé' });
+      }
+      res.status(200).json({ message: 'Employé supprimé avec succès' });
+  } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: 'Erreur serveur' });
+  }
+});
+
+// Route pour mettre à jour un employé par ID
+app.put('/Employe/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nameemploye, email, datededebut, datedefin, departement, salaire, contrat } = req.body;
+
+  try {
+      const employe = await Employe.findByIdAndUpdate(
+          id,
+          { nameemploye, email, datededebut, datedefin, departement, salaire, contrat },
+          { new: true } // Retourne l'employé mis à jour
+      );
+
+      if (!employe) {
+          return res.status(404).json({ error: 'Employé non trouvé' });
+      }
+
+      res.status(200).json(employe);
   } catch (err) {
       console.error(err.message);
       res.status(500).json({ error: 'Erreur serveur' });
