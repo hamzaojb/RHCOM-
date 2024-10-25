@@ -21,7 +21,8 @@ display: flex; /* Utilise Flexbox pour le conteneur */
     display: flex; /* Utilise Flexbox pour le centrage */
     flex-direction: column; /* Organise les éléments enfants en colonne */
     width: 40%; 
-    height: 90%;/* Largeur du formulaire */
+    height: 800px;/* Largeur du formulaire */
+    max-width: 800px;
     border: 1px solid #ccc; /* Bordure pour le formulaire */
     border-radius: 5px; /* Arrondir les coins */
     background-color: white; /* Couleur de fond du formulaire */
@@ -76,4 +77,13 @@ span:hover{
     font-weight: bold;
     color: blue;
    
+}
+
+.message {
+    margin-top: 10px;
+    color: rgb(0, 69, 231); /* Couleur pour le message de réussite */
+}
+
+.message.error {
+    color: red; /* Couleur pour le message d'erreur */
 }

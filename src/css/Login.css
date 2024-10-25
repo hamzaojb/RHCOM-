@@ -21,7 +21,9 @@ display: flex; /* Utilise Flexbox pour le conteneur */
     display: flex; /* Utilise Flexbox pour le centrage */
     flex-direction: column; /* Organise les éléments enfants en colonne */
     width: 40%; 
-    height: 70%;/* Largeur du formulaire */
+    height: 600px;/* Largeur du formulaire */
+    max-height: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid #ccc; /* Bordure pour le formulaire */
     border-radius: 5px; /* Arrondir les coins */
     background-color: white; /* Couleur de fond du formulaire */
@@ -60,6 +62,7 @@ button{
 button:hover{
     background-color: rgb(3, 75, 138);
     font-size: 22px;
+    height:42px ;
 }
 
 span{

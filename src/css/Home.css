@@ -1,7 +1,7 @@
 
 .home-container {
     display: grid;
-    grid-template-columns: 13% 87%; /* 50% pour la gauche, 50% pour la droite */
+    grid-template-columns: 15% 85%; /* 50% pour la gauche, 50% pour la droite */
     height: 100vh; /* Hauteur totale de la fenêtre */
   }
 
@@ -17,6 +17,57 @@
     background-color: rgb(200, 242, 245);
     padding: 20px;
     height: 100vh; /* Hauteur totale de la fenêtre */
+    
   }
   
-  
+  /* Home.css */
+
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto; /* Permet de faire défiler horizontalement si le tableau déborde */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Supprime les espaces entre les cellules */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre autour du tableau */
+  border-radius: 8px; /* Coins arrondis */
+  overflow: hidden; /* Assure que les coins arrondis sont visibles */
+}
+
+th, td {
+  padding: 12px 15px; /* Espacement interne */
+  text-align: left;
+}
+
+th {
+  background-color: #1e71dc; /* Couleur d'arrière-plan des en-têtes */
+  color: white; /* Couleur du texte des en-têtes */
+  font-weight: bold; /* Gras pour le texte des en-têtes */
+}
+
+td {
+  background-color: #fff; /* Couleur d'arrière-plan des cellules */
+  border-bottom: 1px solid #ddd; /* Ligne de séparation entre les lignes */
+}
+
+/* Effet de survol sur les lignes */
+tr:hover {
+  background-color: #f5f5f5; /* Couleur d'arrière-plan au survol */
+}
+
+/* Effet de survol sur les cellules */
+td:hover {
+  background-color: #e8f5e9; /* Couleur d'arrière-plan au survol des cellules */
+}
+
+/* Pour rendre le tableau réactif */
+@media (max-width: 768px) {
+  table {
+    display: block; /* Rendre le tableau défilable */
+    overflow-x: auto; /* Ajouter un défilement horizontal */
+  }
+}
+.tableau{
+  margin-left: 10px;
+}
